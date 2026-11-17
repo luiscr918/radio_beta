@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #e9eef0;
+  --color-ink: #10242b;
+  --color-teal: #1f6f78;
+  --color-signal: #f25c2a;
+  --color-mist: #d3dce0;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+h1, h2, h3, .font-display { font-family: var(--font-display); }
+
+:focus-visible { outline: 3px solid var(--color-signal); outline-offset: 2px; }
+
+@keyframes bars { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
+.bar { transform-origin: bottom; animation: bars 1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bar { animation: none; transform: scaleY(.6); }
+  * { transition-duration: 0s !important; }
+}
